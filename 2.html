@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>NITW</title>
+    <style>
+        .slider {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 400%; /* Adjust according to the number of images */
+        }
+        .slides img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .navigation {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .nav-button {
+            background-color: rgba(0, 0, 0, 0.3);
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <marquee bgcolor="pink"><h1>Welcome to NIT Warangal</h1></marquee>
+    <img align="center" src="https://www.nitw.ac.in/images/NITW_logo_telugu3.png" height="170" width="1300">
+    <pre><h2 style="bold"><a href="default">HOME</a> <a href="academics">ACADEMICS</a> <a href="administration">ADMINISTRATION</a> <a href="alumini">ALUMINI</a> <a href="news">NEWS</a> <a href="contact">CONTACT</a></h2></pre>
+    <h1 align="center">Announcements:</h1>
+    <hr>
+    <marquee bgcolor="peach"><h2><ul><li>Spring spree is going to be conducted in Jan</li><li>Outing time is extended till 12 am</li></ul></h2></marquee>
+    <hr>
+    <h1 align="center">Campus Life:</h1>
+    <div class="slider">
+        <div class="slides">
+            <img src="https://somnitwarangal.wordpress.com/wp-content/uploads/2020/08/whatsapp-image-2020-08-10-at-20.22.36.jpeg?w=1024" alt="Image 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxnyAzepnQE2ajnshbEzkU5a2juYvqrZ0QRw&s" alt="Image 2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQz0RsLyzEaey1tiP8CcE-cisSb7YMnVnomg&s" alt="Image 3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkm0SwAVrPF3GHOS4zy7UG6r1yd_iRneFzGQ&s" alt="Image 4">
+        </div>
+        <div class="navigation" style="bottom: 10px;">
+            <button class="nav-button" onclick="moveSlides(-1)">&#10094;</button>
+            <button class="nav-button" onclick="moveSlides(1)">&#10095;</button>
+        </div>
+    </div>
+    <script>
+        let currentIndex = 0;
+        
+        function moveSlides(n) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            currentIndex = (currentIndex + n + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(${-currentIndex * 100 / totalSlides}%)`;
+        }
+    </script>
+</body>
+</html>
